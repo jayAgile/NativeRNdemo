@@ -56,6 +56,7 @@ public class MyBasicActivity extends ReactContextBaseJavaModule {
             if (intent == null) {
                 Log.d("TAGDATA===============>", "$firstName $lastName");
                 mPickerPromise.reject("not found","No data found");
+
             } else {
                 String firstName = intent.getStringExtra("key");
                 Log.d("TAGDATA===============>", "$firstName $lastName " + firstName);

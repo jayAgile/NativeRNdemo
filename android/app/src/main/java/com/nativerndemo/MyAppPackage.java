@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
+//Register the Module (Android Specific)
 public class MyAppPackage implements ReactPackage {
 
 

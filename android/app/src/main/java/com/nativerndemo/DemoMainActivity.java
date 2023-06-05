@@ -1,17 +1,12 @@
 package com.nativerndemo;
-
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.biospectal.igloo.IglooKt;
-import com.biospectal.igloo.data.StartCalibrationModel;
+
 
 public class DemoMainActivity extends AppCompatActivity {
 
@@ -40,25 +35,25 @@ public class DemoMainActivity extends AppCompatActivity {
 
 //        finish();
     }
-    void calibrationLauncher(int weight, int height) {
-        if (TextUtils.isEmpty(String.valueOf(weight))) {
-//            showToast("enter weight");
-        } else if (TextUtils.isEmpty(String.valueOf(height))) {
-//            showToast("enter height");
-        } else {
-            calibrationLauncher.launch(
-                    new StartCalibrationModel(
-                            weight,
-                            height
-                    )
-            );
-        }
-    }
+//    void calibrationLauncher(int weight, int height) {
+//        if (TextUtils.isEmpty(String.valueOf(weight))) {
+////            showToast("enter weight");
+//        } else if (TextUtils.isEmpty(String.valueOf(height))) {
+////            showToast("enter height");
+//        } else {
+//            calibrationLauncher.launch(
+//                    new StartCalibrationModel(
+//                            weight,
+//                            height
+//                    )
+//            );
+//        }
+//    }
 
-    ActivityResultLauncher<StartCalibrationModel> calibrationLauncher = IglooKt.registerIglooCalibrationLauncher(this, result -> {
-        Log.d("Tag Data",result.toString());
-        setResult(1, new Intent().putExtra("key", result.toString()));
-    finish();
+//    ActivityResultLauncher<StartCalibrationModel> calibrationLauncher = IglooKt.registerIglooCalibrationLauncher(this, result -> {
+//        Log.d("Tag Data",result.toString());
+//        setResult(1, new Intent().putExtra("key", result.toString()));
+//    finish();
 //        if (new ResultResponse().isCalibrationSuccess(result)) {
 //            /**
 //             * store string in db
@@ -71,5 +66,5 @@ public class DemoMainActivity extends AppCompatActivity {
 //        } else {
 //            Log.d("Igloo------------>", "Error ${it.exceptionOrNull()?.message}");
 //        }
-    });
+//    });
 }

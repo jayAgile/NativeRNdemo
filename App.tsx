@@ -11,6 +11,9 @@ import {NativeModules} from 'react-native';
 import {CalendarModules, SimpleModules} from './ NativeCalendarModule';
 
 export default class App extends Component {
+  state = {
+    result: null,
+  };
   onObjCSimpleMethodPress = () => {
     // console.log('We will invoke the native module here!');
     try {
@@ -56,6 +59,17 @@ export default class App extends Component {
   render() {
     return (
       <SafeAreaView>
+        <View>
+          <Text> textInComponent </Text>
+          <Button
+            title="Go to Android"
+            onPress={async () => {
+              const result = await NativeModules.MyModule.launchNativeScreen();
+              this.setState({result});
+            }}
+          />
+          {this.state.result && <Text>{this.state.result}</Text>}
+        </View>
         <Button
           title="Objective C Simple Method"
           color="#841584"
