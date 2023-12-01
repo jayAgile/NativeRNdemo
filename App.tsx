@@ -56,6 +56,14 @@ export default class App extends Component {
     }
   };
 
+  onAndroidNativePress = async () => {
+    console.log('Android Native pressed');
+    NativeModules.CalendarModule.createCalendarEvent(
+      'testName',
+      'testLocation',
+    );
+  };
+
   render() {
     return (
       <SafeAreaView>
@@ -70,6 +78,11 @@ export default class App extends Component {
           />
           {this.state.result && <Text>{this.state.result}</Text>}
         </View>
+        <Button
+          title="Android Native Module"
+          color="#841584"
+          onPress={this.onAndroidNativePress}
+        />
         <Button
           title="Objective C Simple Method"
           color="#841584"
